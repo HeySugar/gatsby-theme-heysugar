@@ -17,9 +17,9 @@ function getHypoCount(readings, settings) {
 
 function getAverageResult(readings) {
   const items = readings.edges.map(edge => edge.node.bloodSugar)
-  const total = items.reduce((acc, val) => acc + val)
+  const total = items.length > 0 ? items.reduce((acc, val) => acc + val) : 0
 
-  return (total / items.length).toFixed(1)
+  return total > 0 ? (total / items.length).toFixed(1) : total
 }
 
 export { getHyperCount, getHypoCount, getAverageResult }
