@@ -1,0 +1,16 @@
+/*
+  Include tailwinds directives here to insert the styles.
+  @tailwind screens gives us access to the responsive
+  variations of utilities, however this is appended by
+  default.
+*/
+
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+/**
+ Custom Styles, outside of Tailwind
+*/
