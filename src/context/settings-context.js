@@ -11,7 +11,7 @@ const SettingsContext = createContext({})
 
 function SettingsProvider({ children }) {
   const data = useStaticQuery(graphql`
-    query SettingsQuery {
+    query {
       sanitySettings {
         systemSettings {
           unit
