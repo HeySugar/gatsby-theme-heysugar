@@ -14,3 +14,10 @@
 /**
  Custom Styles, outside of Tailwind
 */
+body {
+  background-color: #fdfdfe;
+}
+
+.recharts-brush {
+  transform: translateY(20px);
+}

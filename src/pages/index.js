@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
@@ -23,11 +23,22 @@ const tableConfig = {
 function IndexPage({ data }) {
   const { records, settings } = data
 
+  const [chartData, setChartData] = useState([])
   const config = useSettings()
   const hyperCount = getHyperCount(records, config)
   const hypoCount = getHypoCount(records, config)
   const averageReading = getAverageResult(records)
   const bloodSugarClassName = getStatisticClass(averageReading, config)
+
+  useEffect(() => {
+    // Transform data to send to the chart
+    const chartData = records.edges.map(record => ({
+      datetime: record.node.date,
+      result: record.node.bloodSugar,
+    }))
+
+    setChartData(chartData)
+  }, [])
 
   return (
     <Layout>
@@ -48,7 +59,7 @@ function IndexPage({ data }) {
         <div className="mt-12 flex flex-col">
           <div className="my-8 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
             <section className="mb-12">
-              <div className="flex justify-between">
+              <div className="flex justify-between mb-12">
                 <Statistic
                   valueClass={bloodSugarClassName}
                   stat={{
@@ -82,9 +93,11 @@ function IndexPage({ data }) {
               </div>
             </section>
 
-            <div className="mb-16 bg-white rounded overflow-hidden shadow-lg">
-              <ScatterLine />
-            </div>
+            {settings.showChart && (
+              <div className="bg-white rounded overflow-hidden shadow-lg mb-12">
+                <ScatterLine data={chartData} />
+              </div>
+            )}
 
             <div className="align-middle inline-block min-w-full shadow overflow-hidden sm:rounded-lg border-b border-gray-200 mb-12">
               <Table header={tableConfig.header} rows={records.edges} />
