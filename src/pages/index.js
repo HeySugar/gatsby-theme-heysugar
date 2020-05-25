@@ -9,6 +9,7 @@ import Statistic from "../components/statistic"
 import { useSettings } from "../context/settings-context"
 import { getStatisticClass } from "../utils/ui"
 import { getHyperCount, getHypoCount, getAverageResult } from "../utils/calc"
+import { ScatterLine } from "../components/charts"
 
 /**
  * Build up the example table data
@@ -80,6 +81,11 @@ function IndexPage({ data }) {
                 </Statistic>
               </div>
             </section>
+
+            <div className="mb-16 bg-white rounded overflow-hidden shadow-lg">
+              <ScatterLine />
+            </div>
+
             <div className="align-middle inline-block min-w-full shadow overflow-hidden sm:rounded-lg border-b border-gray-200 mb-12">
               <Table header={tableConfig.header} rows={records.edges} />
             </div>
