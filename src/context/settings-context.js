@@ -19,6 +19,10 @@ function SettingsProvider({ children }) {
           hyperLimit
           showGraph
         }
+        profile {
+          familyName
+          givenName
+        }
       }
     }
   `)
