@@ -1,7 +1,7 @@
 {
   "name": "@hey-sugar/gatsby-theme-heysugar",
   "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "Jamie Bradley <jamie@endeavour-digital.com>",
   "main": "index.js",
   "dependencies": {
