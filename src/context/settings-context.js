@@ -17,6 +17,7 @@ function SettingsProvider({ children }) {
           unit
           hypoLimit
           hyperLimit
+          showGraph
         }
       }
     }
