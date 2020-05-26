@@ -4,8 +4,6 @@
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
-  console.log("JAMIE!!!! \n\n")
-
   // Get the pages
   const bloodResult = graphql(`
     {

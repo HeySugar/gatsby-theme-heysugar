@@ -38,7 +38,7 @@ function IndexPage({ data }) {
     }))
 
     setChartData(chartData)
-  }, [])
+  }, [records.edges])
 
   return (
     <Layout>
@@ -93,7 +93,7 @@ function IndexPage({ data }) {
               </div>
             </section>
 
-            {settings.showChart && (
+            {config.systemSettings.showGraph && (
               <div className="bg-white rounded overflow-hidden shadow-lg mb-12">
                 <ScatterLine data={chartData} />
               </div>
