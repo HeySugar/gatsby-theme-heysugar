@@ -16,7 +16,7 @@ import { ScatterLine } from "../components/charts"
  */
 const tableConfig = {
   header: {
-    titles: ["Date", "Time", "Result", "Total Carbs", "Total Fats", ""],
+    titles: ["Date", "Time", "Result", "Insulin Dose", "Total Carbs", ""],
   },
 }
 
@@ -116,6 +116,7 @@ export const pageQuery = graphql`
         node {
           id
           bloodSugar
+          insulinDose
           date: loggedAt(formatString: "DD/MM/YYYY (dddd)", locale: "en_GB")
           time: loggedAt(formatString: "HH:mma", locale: "en_GB")
           meal {

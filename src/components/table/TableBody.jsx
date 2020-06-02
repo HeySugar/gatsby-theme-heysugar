@@ -20,9 +20,6 @@ export default function TableBody({ rows }) {
             ? meal.food.nutrition.carbohydrates
             : meal.nutrition.carbohydrates
         )
-        const fats = node.meal.map(meal =>
-          meal.food ? meal.food.nutrition.fats : meal.nutrition.fats
-        )
 
         return (
           <tr key={node.id}>
@@ -52,15 +49,13 @@ export default function TableBody({ rows }) {
             </td>
             <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
               <div className="text-sm leading-5 text-gray-900">
-                {calculateTotalNutrients(carbs)
-                  ? `${calculateTotalNutrients(carbs)}g`
-                  : "-"}
+                {node.insulinDose ? `${node.insulinDose} units` : "-"}
               </div>
             </td>
             <td className="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
               <div className="text-sm leading-5 text-gray-900">
-                {calculateTotalNutrients(fats)
-                  ? `${calculateTotalNutrients(fats)}g`
+                {calculateTotalNutrients(carbs)
+                  ? `${calculateTotalNutrients(carbs)}g`
                   : "-"}
               </div>
             </td>
