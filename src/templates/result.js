@@ -26,6 +26,11 @@ function ResultPage({ data }) {
               <li className="text-2xl text-gray-500 tracking-wide">
                 {result.dateTime}
               </li>
+              {result.insulinDose && (
+                <li className="text-2xl text-gray-500 tracking-wide mt-2">
+                  Insulin Dose: {result.insulinDose} units
+                </li>
+              )}
               {result.mealTime !== "na" && (
                 <li className="text-2xl text-gray-500 tracking-wide mt-2">
                   {result.mealTime === "before"
@@ -156,6 +161,7 @@ export const query = graphql`
       alcohol
       mood
       bloodSugar
+      insulinDose
       dateTime: loggedAt(formatString: "Do MMMM YYYY | HH:mma", locale: "en_GB")
       mealTime
       _rawNotes
